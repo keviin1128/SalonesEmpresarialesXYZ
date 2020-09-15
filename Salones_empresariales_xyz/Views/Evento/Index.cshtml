@@ -1,0 +1,45 @@
+﻿@model List<Salones_empresariales_xyz.Models.ViewModels.ListEventoViewModel>
+@{
+    ViewBag.Title = "EVENTOS";
+}
+<h2>EVENTOS REGISTRADOS</h2>
+
+<div class="row" style="text-align:right;padding:5px">
+    <a href="~/Evento/Nuevo" class="btn btn-primary">Nuevo registro</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>FECHA</th>
+                <th># ASISTENTES</th>
+                <th>MOTIVO</th>
+                <th>OBSERVACIONES</th>
+                <th>ESTADO</th>
+                <th>CLIENTE</th>
+                <th>OPCIONES</th>
+            </tr>
+            @foreach (var Elemento in Model)
+            {
+            <tr>
+                <td>@Elemento.Id</td>
+                <td>@Elemento.Fecha.Day/@Elemento.Fecha.Month/@Elemento.Fecha.Year</td>
+                <td>@Elemento.CantidadPersonas</td>
+                <td>@Elemento.Motivo</td>
+                <td>@Elemento.Observaciones</td>
+                <td>@Elemento.Estado</td>
+                <td>@Elemento.ClienteId</td>
+                <td>
+                    <a class="btn btn-danger" href="~/Evento/Eliminar/@Elemento.Id">Eliminar</a>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+    <div class="row" style="text-align:center;padding:5px">
+        <a href="~/Cliente/Index" class="btn btn-primary">VOLVER A CLIENTES</a>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+﻿@model List<Salones_empresariales_xyz.Models.ViewModels.ListEventosConfirmadosViewModel>
+@{
+    ViewBag.Title = "EVENTOS CONFIRMADOS";
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>CLIENTE</th>
+                <th>IDENTIFICACIÓN</th>
+                <th>TELEFONO</th>
+                <th>CIUDAD</th>
+                <th>FECHA</th>
+                <th># ASISTENTES</th>
+                <th>MOTIVO</th>
+            </tr>
+            @foreach (var Elemento in Model)
+            {
+                if(Elemento.Estado.Equals("Confirmado"))
+                {
+                    <tr>
+                        <td>@Elemento.NombreCompleto</td>
+                        <td>@Elemento.Identificacion</td>
+                        <td>@Elemento.Telefono</td>
+                        <td>@Elemento.Ciudad</td>
+                        <td>@Elemento.Fecha.Day/@Elemento.Fecha.Month/@Elemento.Fecha.Year</td>
+                        <td>@Elemento.CantidadPersonas</td>
+                        <td>@Elemento.Motivo</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <div class="row" style="text-align:center;padding:5px">
+        <a href="~/Cliente/Index" class="btn btn-primary">VOLVER</a>
+    </div>
+
+</div>

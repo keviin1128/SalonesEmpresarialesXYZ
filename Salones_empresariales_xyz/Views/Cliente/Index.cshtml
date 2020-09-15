@@ -1,0 +1,48 @@
+﻿@model List<Salones_empresariales_xyz.Models.ViewModels.ListClienteViewModel>
+@{
+    ViewBag.Title = "NUESTROS CLIENTES";
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right;padding:5px">
+    <a href="~/Cliente/Nuevo" class="btn btn-primary">Nuevo registro</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>IDENTIFICACIÓN</th>
+                <th>NOMBRE</th>
+                <th>TELEFONO</th>
+                <th>CORREO</th>
+                <th>DEPARTAMENTO</th>
+                <th>CIUDAD</th>
+                <th>EDAD</th>
+                <th>OPCIONES</th>
+            </tr>
+            @foreach (var Elemento in Model)
+            {
+                <tr>
+                    <td>@Elemento.Id</td>
+                    <td>@Elemento.Identificacion</td>
+                    <td>@Elemento.NombreCompleto</td>
+                    <td>@Elemento.Telefono</td>
+                    <td>@Elemento.Correo</td>
+                    <td>@Elemento.Departamento</td>
+                    <td>@Elemento.Ciudad</td>
+                    <td>@Elemento.Edad</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Cliente/Editar/@Elemento.Id">Editar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="row" style="text-align:center;padding:5px">
+        <a href="~/Evento/Index" class="btn btn-primary">TODOS LOS EVENTOS</a>
+        <a href="~/EventoConfirmado/Index" class="btn btn-primary">EVENTOS CONFIRMADOS</a>
+    </div>
+
+</div>

@@ -1,0 +1,53 @@
+﻿@model Salones_empresariales_xyz.Models.ViewModels.EventoViewModel
+
+@{
+    ViewBag.Title = "REGISTRO DE NUEVO EVENTO";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Editar", "Evento", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12" style="text-align:center;padding:5px">
+            @Html.HiddenFor(d => d.Id)
+            <div>
+                @Html.LabelFor(d => d.Fecha)
+                @Html.EditorFor(d => d.Fecha, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Fecha, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.CantidadPersonas)
+                @Html.TextBoxFor(d => d.CantidadPersonas, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.CantidadPersonas, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Motivo)
+                @Html.TextBoxFor(d => d.Motivo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Motivo, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Observaciones)
+                @Html.TextBoxFor(d => d.Observaciones, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Observaciones, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Estado)
+                @Html.TextBoxFor(d => d.Estado, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Estado, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.ClienteId)
+                @Html.TextBoxFor(d => d.ClienteId, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.ClienteId, null, new { @class = "red" })
+            </div>
+
+        </div>
+        <div class="row" style="text-align:center;padding:5px">
+            <a href="~/Evento/Index" class="btn btn-primary">VOLVER</a>
+            <input value="GUARDAR" type="submit" class="btn btn-success" />
+        </div>
+    </div>
+}
+
+
